@@ -12,4 +12,8 @@ def TuneForMe(request):
 	context = {}
 	return render(request, 'tuneforme.html', context)
 
+def NewsCard(request):
+	context = {}
+	return render(request, 'newscard.html', context)
+
 # return render(request, 'refresh-mastery-database.html', context)
