@@ -164,7 +164,6 @@
 // fill the page with content every time the user reaches the bottom of the page
 $("main").scroll(function() {
    if($(window).scrollTop() + $(window).height() == $(document).height()) {
-   		console.log("added")
        $.ajax({
 		    url: 'http://127.0.0.1:8000/newscard',
 		    type: 'get',
@@ -181,7 +180,7 @@ $("main").scroll(function() {
 });
 
 //Play and Pause Control
-$("i#play-pause.material-icons.controls").click(function() {
+$('body').on('click','i#play-pause.material-icons.controls',function(){
   if ($(this).text()== "pause_circle_outline") {
   	$(this).text("play_circle_outline");
   	$(this).siblings("audio")[0].pause();
@@ -192,7 +191,7 @@ $("i#play-pause.material-icons.controls").click(function() {
 
 //restart control
 var restart_buttom = $("i#play-pause.material-icons.controls");
-restart_buttom.dblclick(function() {
+$('body').on('dblclick','i#play-pause.material-icons.controls',function(){
   if ($(this).text()== "pause_circle_outline") {
   	$(this).siblings("audio")[0].currentTime = 0;
   	$(this).siblings("audio")[0].play();
@@ -200,7 +199,7 @@ restart_buttom.dblclick(function() {
 });
 
 //add and remove control
-$("i#add-remove.material-icons.controls").click(function() {
+$('body').on('click','i#add-remove.material-icons.controls',function(){
   if ($(this).text()== "add_circle_outline") {
   	$(this).text("highlight_off");
   } else {
@@ -208,13 +207,15 @@ $("i#add-remove.material-icons.controls").click(function() {
 });
 
 //favorite and unfavorite control
-$("i#favorite.material-icons.controls").click(function() {
+$('body').on('click','i#favorite.material-icons.controls',function(){
   if ($(this).css("color")== "rgb(128, 128, 128)") {
   	$(this).css("color", "gold");
   } else {
   	$(this).css("color", "grey");
   	 }
 });
+
+
 </script>
 <!-- <p>
 	<audio controls autoplay>
